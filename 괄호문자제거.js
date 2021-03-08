@@ -17,29 +17,42 @@ EFLM
 */
 
 
-function solution(str) {
+// function solution(str) {
 
 
-    let answer = '';
+//     let answer = '';
+//     let stack = [];
+
+//     for (let one of str) {
+//         if (one === '(') stack.push(one);
+//         else if (one === ')') {
+//             if(stack.length > 0) {
+//                 stack.pop();
+//             } else {
+//                 return '오류사항';
+//             }
+//         } else {
+//             if(stack.length === 0) {
+//                 answer += one;
+//             } 
+//         }
+//     }
+
+//     return answer;
+
+// }
+
+function solution(s) {
+    let answer;
     let stack = [];
 
-    for (let one of str) {
-        if (one === '(') stack.push(one);
-        else if (one === ')') {
-            if(stack.length > 0) {
-                stack.pop();
-            } else {
-                return '오류사항';
-            }
-        } else {
-            if(stack.length === 0) {
-                answer += one;
-            } 
-        }
+    for(let x of s) {
+        if(x === ')') {
+            while(stack.pop() !== '(');
+        } else stack.push(x);
     }
-
+    answer = stack.join('');
     return answer;
-
 }
 
 let str = '(A(BC)D)EF(G(H)(IJ)K)LM(N)';
