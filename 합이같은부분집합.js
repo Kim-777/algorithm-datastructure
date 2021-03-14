@@ -36,8 +36,8 @@ function solution(arr) {
 
             let first = firstarr.reduce((a, b) => a + b, 0);
             let second = secondarr.reduce((a, b) => a + b, 0);
-            console.log(first);
-            console.log(second);
+            // console.log(first);
+            // console.log(second);
             if(first === second) {
                 return answer = "YES";
             }
@@ -78,11 +78,14 @@ function solution(arr) {
             DFS(L+1, sum);
         }
 
-        DFS(0, 0);
-        return answer;
+        
     }
 
+
+    DFS(0, 0);
+    return answer;
 }
 */
+
 let arr =[1, 3, 5, 6, 7, 10];
 console.log(solution(arr))
