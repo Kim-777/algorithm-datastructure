@@ -60,6 +60,6 @@ function solution(n, f) {
     DFS(0, 0);
     return answer;
 
-}
+}W
 
 console.log(solution(4, 16));
