@@ -61,7 +61,7 @@ function solution(arr) {
 }
 
 
-//test casex
+//test case
 let arr = [
     [1, 4],
     [2, 3],

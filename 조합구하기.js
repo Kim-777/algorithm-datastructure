@@ -45,7 +45,7 @@ function solution(n, m) {
 }
 
 let number = 5;
-let number2 = 3;
+let number2 = 2;
 
 console.log(solution(number, number2));
 
