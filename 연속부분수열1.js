@@ -4,14 +4,15 @@ function solution (arr, num) {
     let lt = 0;
     let sum =0;
 
-    for(let rt=0; rt<arr.length; rt++) {
+    for(let rt = 0; rt < arr.length; rt++) {
         sum += arr[rt];
-        if(sum === num) answer++;
+        if(sum == num) answer++;
         while(sum >= num) {
-            sum -= arr[lt++];
-            if(sum===num) answer++;
+            sum -= arr[lt++]
+            if(sum == num) answer++;
         }
     }
+
 
     return answer;
 }

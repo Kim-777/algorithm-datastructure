@@ -21,9 +21,11 @@ function solution(arr, num) {
 */
 
 function solution(arr, m) {
+
     let answer = 0;
     let sum = 0;
     let lt = 0;
+    
     for(let rt=0; rt<arr.length; rt++) {
         sum += arr[rt];
         while(sum > m) {
