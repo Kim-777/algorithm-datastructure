@@ -26,6 +26,8 @@ function solution2(str1, str2) {
   const obj1 = {};
   const obj2 = {};
 
+  if (str1.length !== str2.length) return false;
+
   for (let word of str1) {
     if (obj1[word]) {
       obj1[word] += 1;
@@ -45,13 +47,16 @@ function solution2(str1, str2) {
   console.log(obj2);
 
   for (let key in obj1) {
-    if (!obj2[key] || obj2[key] === 0) {
+    if (!obj2[key]) {
       return false;
     } else {
-      obj2[key] -= 1;
+      if (obj1[key] !== obj2[key]) {
+        return false;
+      }
     }
   }
   return true;
 }
 
 console.log(solution2(a, b));
+console.log(solution2("aaaabb", "aaaabb"));
