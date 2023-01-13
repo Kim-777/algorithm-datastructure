@@ -75,6 +75,76 @@ class BinarySearchTree {
       }
     }
   }
+
+  BFS() {
+    const queue = [];
+    const data = [];
+
+    if (this.root === null) return [];
+
+    let node = this.root;
+    queue.push(node);
+
+    while (queue.length > 0) {
+      node = queue.shift();
+      if (node.left) {
+        queue.push(node.left);
+      }
+
+      if (node.right) {
+        queue.push(node.right);
+      }
+
+      data.push(node.value);
+    }
+
+    return data;
+  }
+
+  DFSPreOrder() {
+    const data = [];
+    if (this.root === null) return data;
+
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
+
+  DFSPostOrder() {
+    const data = [];
+    if (this.root === null) return data;
+
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
+
+  DFSInOrder() {
+    const data = [];
+    if (this.root === null) return data;
+
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -85,6 +155,15 @@ tree.root.left.right = new Node(9);
 tree.insert(11);
 tree.insert(15);
 tree.insert(17);
-// console.log("tree ::: ", tree);
 // console.log(tree.find(16));
-console.log(tree.contains(15));
+// console.log(tree.contains(15));
+
+console.log(tree.BFS());
+console.log(tree.DFSPreOrder());
+console.log(tree.DFSPostOrder());
+
+//          10
+//      7         15
+//        9    11    17
+//
+//
