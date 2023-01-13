@@ -22,47 +22,47 @@
 */
 
 function solution(coin, money) {
-    let answer = Number.MAX_SAFE_INTEGER;
-    let sum = 0;
+  let answer = Number.MAX_SAFE_INTEGER;
+  let sum = 0;
 
-    function DFS(L) {
-        if(sum > money) return;
-        if(L >= answer) return;
-        if(sum === money) answer = Math.min(answer, L);
-        else {
-            for(let i=0; i< coin.length; i++) {
-                sum += coin[i];
-                DFS(L+1);
-                sum -= coin[i];
-            }
-        }
+  function DFS(L) {
+    if (sum > money) return;
+    if (L >= answer) return;
+    if (sum === money) answer = Math.min(answer, L);
+    else {
+      for (let i = 0; i < coin.length; i++) {
+        sum += coin[i];
+        DFS(L + 1);
+        sum -= coin[i];
+      }
     }
+  }
 
-    DFS(0);
+  DFS(0);
 
-    return answer;
+  return answer;
 }
 
 /* 다른사람 풀이 */
 
 function solution2(m, arr) {
-    let answer = Number.MAX_SAFE_INTEGER;
-    let n = arr.length;
-    function DFS(L, sum) {
-        if(sum > m) return;
-        if(L >= answer) return;
-        if(sum === m) {
-            answer= Math.min(answer, L);
-        } else {
-            for(let i=0; i<n; i++) {
-                DFS(L+1, sum+arr[i]);
-            }
-        }
+  let answer = Number.MAX_SAFE_INTEGER;
+  let n = arr.length;
+  function DFS(L, sum) {
+    if (sum > m) return;
+    if (L >= answer) return;
+    if (sum === m) {
+      answer = Math.min(answer, L);
+    } else {
+      for (let i = 0; i < n; i++) {
+        DFS(L + 1, sum + arr[i]);
+      }
     }
+  }
 
-    DFS(0, 0);
-    return answer;
+  DFS(0, 0);
+  return answer;
 }
 
-let coin=[1, 2, 5];
+let coin = [1, 2, 5];
 console.log(solution(coin, 15));
