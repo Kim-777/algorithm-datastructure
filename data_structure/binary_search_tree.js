@@ -41,7 +41,7 @@ class BinarySearchTree {
     }
   }
 
-  contains(value) {
+  find(value) {
     if (this.root === null) return null;
     let current = this.root;
     let found = false;
@@ -59,7 +59,7 @@ class BinarySearchTree {
     return null;
   }
 
-  find(value) {
+  contains(value) {
     if (!this.root) return false;
 
     let current = this.root;
