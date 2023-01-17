@@ -43,14 +43,86 @@ class Graph {
 
     delete this.adjacencyList[vertex];
   }
+
+  depthFirstRecursive(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          dfs(neighbor);
+        }
+      });
+    })(start);
+
+    return result;
+  }
+
+  depthFirstIterative(start) {
+    const stack = [start];
+    const result = [];
+    const visited = {};
+    let currentVertex;
+
+    visited[start] = true;
+
+    while (stack.length !== 0) {
+      currentVertex = stack.pop();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+
+          stack.push(neighbor);
+        }
+      });
+    }
+
+    return result;
+  }
+
+  breadthFirst(start) {
+    const queue = [start];
+    const result = [];
+    const visited = { [start]: true };
+    let currentVertex;
+    while (queue.length) {
+      currentVertex = queue.shift();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    return result;
+  }
 }
 
 const graph = new Graph();
-graph.addVertex("first");
-graph.addVertex("second");
-graph.addEdge("three", "four");
-graph.addEdge("four", "three");
-graph.addEdge("four", "five");
-graph.removeVertex("five");
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E", "F");
+
+// graph.removeVertex("five");
 // graph.removeEdge("four", "five");
-console.log("graph ::::: ", graph);
+// console.log(graph.depthFirstRecursive("A"));
+console.log(graph);
+console.log(graph.depthFirstIterative("A"));
+console.log(graph.breadthFirst("A"));
