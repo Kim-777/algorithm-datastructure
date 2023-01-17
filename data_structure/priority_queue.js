@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class PriorityQueue {
+class PriorityHeapQueue {
   constructor() {
     this.queue = [];
   }
@@ -81,7 +81,7 @@ class PriorityQueue {
   }
 }
 
-const priorityQueue = new PriorityQueue();
+const priorityQueue = new PriorityHeapQueue();
 priorityQueue.enqueue(1, 3);
 priorityQueue.enqueue(2, 2);
 priorityQueue.enqueue(2, 5);
