@@ -86,6 +86,7 @@ priorityQueue.enqueue(1, 3);
 priorityQueue.enqueue(2, 2);
 priorityQueue.enqueue(2, 5);
 priorityQueue.enqueue(10, 1);
+
 console.log("priorityQueue ::::: ", priorityQueue);
 
 priorityQueue.dequeue();
