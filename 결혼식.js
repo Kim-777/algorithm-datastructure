@@ -31,39 +31,39 @@
 */
 
 function solution(times) {
+  let answer = 0;
 
-    let answer =0;
-    
-    let time_line = []
+  let time_line = [];
 
-    for(let time of times) {
-        time_line.push([time[0], 's']);
-        time_line.push([time[1], 'e']);
-    }
+  for (let time of times) {
+    time_line.push([time[0], "s"]);
+    time_line.push([time[1], "e"]);
+  }
 
-    time_line.sort((a, b) => {
-        if(a[0] === b[0]) return a[1].charCodeAt(0) - b[1].charCodeAt(0);
-        else return a[0] - b[0];
-    })
+  time_line.sort((a, b) => {
+    if (a[0] === b[0]) return a[1].charCodeAt(0) - b[1].charCodeAt(0);
+    else return a[0] - b[0];
+  });
 
-    let peoples = 0;
-    for(let i=0; i<time_line.length; i++) {
-        if(time_line[i][1] == 's') peoples++;
-        else if(time_line[i][1] == 'e') peoples--;
-        answer = Math.max(answer, peoples);
-    }
+  console.log(time_line);
 
-    return answer;
+  let peoples = 0;
+  for (let i = 0; i < time_line.length; i++) {
+    if (time_line[i][1] === "s") peoples++;
+    else if (time_line[i][1] === "e") peoples--;
+    answer = Math.max(answer, peoples);
+  }
+
+  return answer;
 }
-
 
 // test case
 let times = [
-    [14, 18],
-    [12, 15],
-    [15, 20],
-    [20, 30],
-    [5, 15]
-]
+  [14, 18],
+  [12, 15],
+  [15, 20],
+  [20, 30],
+  [5, 14],
+];
 
 console.log(solution(times));
