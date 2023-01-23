@@ -27,10 +27,9 @@ function solution(arr, limit) {
   let max = Number.MIN_SAFE_INTEGER;
 
   function DFS(L, score, time) {
+    if (time > limit) return;
     if (L === arr.length) {
-      if (time <= limit) {
-        max = Math.max(max, score);
-      }
+      max = Math.max(max, score);
     } else {
       DFS(L + 1, score + arr[L][0], time + arr[L][1]);
       DFS(L + 1, score, time);

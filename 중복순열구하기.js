@@ -26,29 +26,28 @@
 9
 */
 
+function solution(headNumber, number) {
+  let temparr = [];
+  let answer = [];
+  let count = 0;
 
-// 재귀로 풀수 있고
-function solution(beadnumber, number) {
-
-    let temparr = [];
-    let count=0;
-
-    function DFS(counter) {
-        if(number === counter) {
-            console.log(temparr);
-            count++;
-        } else {
-            for(let i=1; i<=beadnumber; i++) {
-                temparr.push(i);
-                DFS(counter+1);
-                temparr.pop();
-            }
-        }
+  function DFS(counter) {
+    if (number === counter) {
+      answer.push([...temparr]);
+      count++;
+    } else {
+      for (let i = 1; i <= headNumber; i++) {
+        temparr[counter] = i;
+        DFS(counter + 1);
+        // temparr.pop();
+      }
     }
+  }
 
-    DFS(0);
-    console.log(count);
-    
+  DFS(0);
+  console.log(answer);
+  console.log(count);
+  return answer;
 }
 
 solution(2, 2);
