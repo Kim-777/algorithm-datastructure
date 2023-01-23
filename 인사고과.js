@@ -26,12 +26,9 @@ function solution(scores) {
 
   scores.forEach(([a, b]) => {
     if (!scoresObj[a]) {
-      scoresObj[a] = [b, b];
+      scoresObj[a] = b;
     } else {
-      scoresObj[a] = [
-        Math.max(scoresObj[a][0], b),
-        Math.min(scoresObj[a][1], b),
-      ];
+      scoresObj[a] = Math.max(scoresObj[a], b);
     }
     maxA = Math.max(maxA, a);
   });
@@ -42,7 +39,7 @@ function solution(scores) {
     let flag;
     if (a < maxA) {
       for (let i = a + 1; i <= maxA; i++) {
-        if (scoresObj[i][0] > b && scoresObj[i][1] > b) {
+        if (scoresObj[i] > b) {
           if (isHero) return -1;
           flag = true;
           break;
