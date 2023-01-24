@@ -38,50 +38,46 @@ moves 배열 각 원소들의 값은 1 이상이며 board 배열의 가로 크�
 4
 */
 
-
 function solution(board, moves) {
+  let answer = 0;
+  let gamebox = [];
 
-    let answer = 0;
-    let gamebox = [];
+  // moves 요소에 따라 fn을 실행하는 forEach문을 사용합니다.
+  moves.forEach((pos) => {
+    for (let i = 0; i < board.length; i++) {
+      // 위에 부터 0이 아닌 위치를 찾아 냅니다.
+      if (board[i][pos - 1] !== 0) {
+        let temp = board[i][pos - 1];
 
-    // moves 요소에 따라 fn을 실행하는 forEach문을 사용합니다.
-    moves.forEach(pos => {
-        for(let i=0; i<board.length; i++) {
+        // 인형이 뽑혀버린 자리는 0으로 채워줍니다.
+        board[i][pos - 1] = 0;
 
-            // 위에 부터 0이 아닌 위치를 찾아 냅니다.
-            if(board[i][pos-1]!==0) {
-                let temp = board[i][pos-1];
-
-                // 인형이 뽑혀버린 자리는 0으로 채워줍니다.
-                board[i][pos-1] = 0;
-                
-                // 스텍 제일 위에 있는 것과 같다면 pop을 해줍니다.
-                if(temp === gamebox[gamebox.length-1]) {
-                    gamebox.pop();
-                    answer +=2;
-                } else {
-                    gamebox.push(temp);
-                    // console.log(temp);
-                    
-                }
-
-                break;
-            }
+        // 스텍 제일 위에 있는 것과 같다면 pop을 해줍니다.
+        if (temp === gamebox[gamebox.length - 1]) {
+          gamebox.pop();
+          answer += 2;
+        } else {
+          gamebox.push(temp);
+          // console.log(temp);
         }
-    });
 
-    return answer;
+        break;
+      }
+    }
+  });
 
+  return answer;
 }
-
 
 // test case
 
-let board=[[0,0,0,0,0],
-[0,0,1,0,3],
-[0,2,5,0,1],
-[4,2,4,4,2],
-[3,5,1,3,1]];
+let board = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 3],
+  [0, 2, 5, 0, 1],
+  [4, 2, 4, 4, 2],
+  [3, 5, 1, 3, 1],
+];
 
-let moves=[1, 5, 3, 5, 1, 2, 1, 4];
+let moves = [1, 5, 3, 5, 1, 2, 1, 4];
 console.log(solution(board, moves));
