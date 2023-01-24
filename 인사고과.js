@@ -9,7 +9,7 @@
  */
 
 function solution(scores) {
-  let answer = -1;
+  let answer = 1;
 
   const hero = scores[0];
   const heroNumber = scores[0][0] + scores[0][1];
@@ -45,17 +45,15 @@ function solution(scores) {
           break;
         }
       }
-      if (!flag) newScores.push(a + b);
+      if (!flag) {
+        if (heroNumber < a + b) {
+          answer++;
+        }
+      }
     } else {
-      newScores.push(a + b);
-    }
-  }
-
-  newScores.sort((a, b) => b - a);
-
-  for (let i = 0; i < newScores.length; i++) {
-    if (newScores[i] === heroNumber) {
-      return i + 1;
+      if (heroNumber < a + b) {
+        answer++;
+      }
     }
   }
 
