@@ -26,23 +26,21 @@ N개의 좌표를 정렬하여 출력하세요.
 */
 
 function solution(arr) {
-
-    let answer = arr;
-    arr.sort((a, b) => {
-        if(a[0] === b[0]) return a[1] - b[1];
-        else return a[0] - b[0];
-    })
-    return answer;
+  const answer = arr;
+  arr.sort((a, b) => {
+    if (a[0] === b[0]) return a[1] - b[1];
+    else return a[0] - b[0];
+  });
+  return answer;
 }
 
-
 //test case
-let arr = [
-    [2, 7],
-    [1, 3],
-    [1, 2],
-    [2, 5],
-    [3, 6]
-]
+const arr = [
+  [2, 7],
+  [1, 3],
+  [1, 2],
+  [2, 5],
+  [3, 6],
+];
 
 console.log(solution(arr));

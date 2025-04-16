@@ -33,37 +33,36 @@
 6
 */
 
-
 function solution(vertex, edge) {
+  let answer = 0;
+  const graph = Array.from({ length: vertex + 1 }, () =>
+    Array.from({ length: vertex + 1 }, () => 0)
+  );
+  //console.log(graph);
+  const ch = new Array(vertex + 1).fill(0);
 
-    let answer = 0;
-    let graph = Array.from({length:vertex+1}, ()=> Array.from({length: vertex+1}, ()=>0));
-    //console.log(graph);
-    let ch = new Array(vertex+1).fill(0);
+  for (const [a, b] of edge) {
+    graph[a][b] = 1;
+  }
 
-    for(let [a, b] of edge) {
-        graph[a][b] = 1;
-    }
-
-    function DFS(v) {
-        if(v===vertex) answer++
-        else {
-            for(let i=1; i<= vertex; i++) {
-                if(graph[v][i] ===1 && ch[i] ===0) {
-                    ch[i] = 1;
-                    DFS(i);
-                    ch[i] = 0;
-                }
-            }
+  function DFS(v) {
+    if (v === vertex) answer++;
+    else {
+      for (let i = 1; i <= vertex; i++) {
+        if (graph[v][i] === 1 && ch[i] === 0) {
+          ch[i] = 1;
+          DFS(i);
+          ch[i] = 0;
         }
+      }
     }
+  }
 
-    ch[1] = 1;
-    DFS(1);
-    
-    return answer;
+  ch[1] = 1;
+  DFS(1);
+
+  return answer;
 }
-
 
 /*
 function solution(n, arr) {
@@ -94,18 +93,18 @@ function solution(n, arr) {
 }
 */
 
-let edge = [
-    [1, 2],
-    [1, 3],
-    [1, 4],
-    [2, 1],
-    [2, 3],
-    [2, 5],
-    [3, 4],
-    [4, 2],
-    [4, 5]
-]
+const edge = [
+  [1, 2],
+  [1, 3],
+  [1, 4],
+  [2, 1],
+  [2, 3],
+  [2, 5],
+  [3, 4],
+  [4, 2],
+  [4, 5],
+];
 console.log(solution(5, edge));
 
-let arr = Array(6).fill(0);
+const arr = Array(6).fill(0);
 console.log(arr);

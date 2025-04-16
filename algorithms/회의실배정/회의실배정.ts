@@ -40,13 +40,13 @@ function solution(arr) {
   let answer = 1;
 
   arr.sort((a, b) => {
-    console.log("a ::::: ", a);
-    console.log("b ::::: ", b);
+    console.log('a ::::: ', a);
+    console.log('b ::::: ', b);
     if (a[1] === b[1]) return a[0] - b[0];
     else return a[1] - b[1];
   });
 
-  console.log("sort :::: ", arr);
+  console.log('sort :::: ', arr);
 
   let end = arr[0][1];
 
@@ -61,7 +61,7 @@ function solution(arr) {
 }
 
 //test case
-let arr = [
+const arr = [
   [1, 4],
   [2, 3],
   [3, 5],
@@ -71,7 +71,7 @@ let arr = [
 
 console.log(solution(arr));
 
-let arr2 = [
+const arr2 = [
   [3, 3],
   [1, 3],
   [2, 3],

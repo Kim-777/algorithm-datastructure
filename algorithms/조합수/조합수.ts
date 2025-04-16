@@ -29,19 +29,17 @@ function solution(n, r) {
 
 // 메모이제이션을 사용하는 방법
 function solution(n, r) {
-    let answer;
-    let dy = Array.from(Array(n+1), ()=> Array(r+1).fill(0));
-    console.log(dy);
-    function DFS(n, r) {
-        if(dy[n][r] > 0) return dy[n][r];
-        if(n===r || r===0) return 1;
-        else return dy[n][r] = DFS(n-1, r-1) + DFS(n-1, r);
-    }
+  let answer;
+  const dy = Array.from(Array(n + 1), () => Array(r + 1).fill(0));
+  console.log(dy);
+  function DFS(n, r) {
+    if (dy[n][r] > 0) return dy[n][r];
+    if (n === r || r === 0) return 1;
+    else return (dy[n][r] = DFS(n - 1, r - 1) + DFS(n - 1, r));
+  }
 
-    answer=DFS(n, r);
-    return answer;
+  answer = DFS(n, r);
+  return answer;
 }
-
-
 
 console.log(solution(33, 19));

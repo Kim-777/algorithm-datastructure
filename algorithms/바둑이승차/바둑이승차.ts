@@ -57,5 +57,5 @@ function solution(weight, dogs) {
 //   return max;
 // }
 
-let arr = [81, 58, 42, 33, 61];
+const arr = [81, 58, 42, 33, 61];
 console.log(solution(259, arr));

@@ -28,25 +28,24 @@
 // 모든 사람이 2문제씩을 맞췄습니다.
 
 function solution(answers) {
-    let answer = [];
+  const answer = [];
 
-    const first = [1,2,3,4,5];
-    const second = [2,1,2,3,2,4,2,5];
-    const third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-    let point = [0, 0, 0];
+  const first = [1, 2, 3, 4, 5];
+  const second = [2, 1, 2, 3, 2, 4, 2, 5];
+  const third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+  const point = [0, 0, 0];
 
-    for(let i=0; i < answers.length; i++) {
-        if(answers[i] === first[i%5]) point[0]++;
-        if(answers[i] === second[i%8]) point[1]++;
-        if(answers[i] === third[i%10]) point[2]++;
-    }
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i] === first[i % 5]) point[0]++;
+    if (answers[i] === second[i % 8]) point[1]++;
+    if (answers[i] === third[i % 10]) point[2]++;
+  }
 
-    let max = Math.max(...point);
+  const max = Math.max(...point);
 
-    for(let j =0; j<point.length; j++) {
-        if(max===point[j]) answer.push(j+1);
-    }
+  for (let j = 0; j < point.length; j++) {
+    if (max === point[j]) answer.push(j + 1);
+  }
 
-    return answer;
+  return answer;
 }
-

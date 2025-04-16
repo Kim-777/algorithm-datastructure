@@ -24,53 +24,48 @@ DVD를 가급적 줄이려고 한다. 고민 끝에 지니레코드는 M개의 D
 수 있다. 17분 용량보다 작은 용량으로는 3개의 DVD에 모든 영상을 녹화할 수 없다.
 */
 
-
 // 풀이 방법 -- 이분 검색으로 풀 수 있습니다.
 
 // 이분검색으로 선택된 값이 조건에 부합하는 지 확인하는 function 입니다.
 function count(songs, capacity) {
+  // 디스크를 1부터 시작해줍니다.
+  let counter = 1;
+  let sum = 0;
 
-    // 디스크를 1부터 시작해줍니다.
-    let counter = 1;
-    let sum =0;
+  for (const song of songs) {
+    if (sum + song > capacity) {
+      counter++;
+      sum = song;
+    } else {
+      sum += song;
+    }
+  }
 
-        for(let song of songs) {
-            if(sum+song > capacity) {
-                counter++;
-                sum=song;
-            } else {
-                sum += song;
-            }
-        }
-
-    return counter;
+  return counter;
 }
 
 function solution(m, songs) {
-    let answer;
+  let answer;
 
-    //전개 문법으로 배열의 요소를 값으로 넘겨줍니다.
-    let lt = Math.max(...songs)
-    let rt = songs.reduce((a, b) => a + b, 0);
-    
-    while(lt<=rt) {
-        let mid = parseInt((lt+rt)/2);
+  //전개 문법으로 배열의 요소를 값으로 넘겨줍니다.
+  let lt = Math.max(...songs);
+  let rt = songs.reduce((a, b) => a + b, 0);
 
-        if(count(songs, mid) <= m) {
-            answer = mid;
-            rt = mid -1;
-        } else {
-            lt = mid+1;
-        }
-        
+  while (lt <= rt) {
+    const mid = parseInt((lt + rt) / 2);
+
+    if (count(songs, mid) <= m) {
+      answer = mid;
+      rt = mid - 1;
+    } else {
+      lt = mid + 1;
     }
+  }
 
-    return answer;
+  return answer;
 }
 
-// test case 
+// test case
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(solution(3, arr));
-
-

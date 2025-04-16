@@ -1,5 +1,5 @@
 // K번째 큰 수
-// 현수는 1부터 100사이의 자연수가 적힌 N장의 카드를 가지고 있습니다. 같은 숫자의 카드가 
+// 현수는 1부터 100사이의 자연수가 적힌 N장의 카드를 가지고 있습니다. 같은 숫자의 카드가
 // 여러장 있을 수 있습니다. 현수는 이 중 3장을 뽑아 각 카드에 적힌 수를 합한 값을 기록하려
 // 고 합니다. 3장을 뽑을 수 있는 모든 경우를 기록합니다. 기록한 값 중 K번째로 큰 수를 출력
 // 하는 프로그램을 작성하세요.
@@ -10,32 +10,27 @@
 // 된다.
 // ▣ 출력설명
 // 첫 줄에 K번째 수를 출력합니다. K번째 수는 반드시 존재합니다.
-// ▣ 입력예제 1 
+// ▣ 입력예제 1
 // 10 3
 // 13 15 34 23 45 65 33 11 26 42
 // ▣ 출력예제 1
 // 143
 
-
 function solution(numbers, k) {
+  let answer = 0;
+  const set = new Set();
 
-    let answer = 0;
-    let set = new Set();
-
-    for(let i =0; i< numbers.length; i++) {
-        for(let j= i+1; j < numbers.length; j++) {
-            for(let k= j + 1; k < numbers.length; k++) {
-                set.add(numbers[i] + numbers[j] + numbers[k])
-            }
-        }
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      for (let k = j + 1; k < numbers.length; k++) {
+        set.add(numbers[i] + numbers[j] + numbers[k]);
+      }
     }
+  }
 
-    answer = Array.from(set).sort((a, b) => b - a)[k - 1];
+  answer = Array.from(set).sort((a, b) => b - a)[k - 1];
 
-
-    return answer;
-
-
+  return answer;
 }
 
 console.log(solution([13, 15, 34, 23, 45, 65, 33, 11, 26, 42], 3));

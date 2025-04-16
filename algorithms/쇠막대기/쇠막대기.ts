@@ -44,31 +44,26 @@
 
 */
 
-function solution(s){
+function solution(s) {
+  let answer = 0;
+  const stack = [];
 
-    let answer=0;
-    let stack=[];
+  // parameter의 length 만큼 for문
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') stack.push('(');
+    else {
+      stack.pop();
 
-    // parameter의 length 만큼 for문
-    for(let i=0; i<s.length; i++){
-        if(s[i]==='(') stack.push('(');
-        else{
-
-            stack.pop(); 
-            
-            // 직전 값이 '('였으면 레이저 
-            if(s[i-1]==='(') {
-
-                // stack에 남아있는 '('의 갯수가 현재 레이저가 자르는 쇠막대기의 갯수임
-                answer+=stack.length;
-            } else answer++;
-
-        }
-    }                          
-    return answer;
+      // 직전 값이 '('였으면 레이저
+      if (s[i - 1] === '(') {
+        // stack에 남아있는 '('의 갯수가 현재 레이저가 자르는 쇠막대기의 갯수임
+        answer += stack.length;
+      } else answer++;
+    }
+  }
+  return answer;
 }
 
-
 // test case
-let a="()(((()())(())()))(())";
+const a = '()(((()())(())()))(())';
 console.log(solution(a));

@@ -19,24 +19,21 @@ N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프�
 5 7 11 13 15 23
 */
 
-
 function solution(str) {
+  const arr = str.split(' ');
+  const answer = arr;
 
-    let arr = str.split(' ');
-    let answer = arr;
-
-    for(let i=0; i< arr.length-1; i++) {
-        for(let j=0; j<arr.length-i-1; j++) {
-            if(+arr[j]>+arr[j+1]) {
-                [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-            }
-        }
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (+arr[j] > +arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
     }
+  }
 
-    return answer;
-
+  return answer;
 }
 
-let str = '13 5 11 7 23 15';
+const str = '13 5 11 7 23 15';
 
 console.log(solution(str));

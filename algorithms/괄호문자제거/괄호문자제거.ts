@@ -16,9 +16,7 @@ EFLM
 
 */
 
-
 // function solution(str) {
-
 
 //     let answer = '';
 //     let stack = [];
@@ -34,7 +32,7 @@ EFLM
 //         } else {
 //             if(stack.length === 0) {
 //                 answer += one;
-//             } 
+//             }
 //         }
 //     }
 
@@ -43,17 +41,17 @@ EFLM
 // }
 
 function solution(s) {
-    let answer;
-    let stack = [];
+  let answer;
+  const stack = [];
 
-    for(let x of s) {
-        if(x === ')') {
-            while(stack.pop() !== '(');
-        } else stack.push(x);
-    }
-    answer = stack.join('');
-    return answer;
+  for (const x of s) {
+    if (x === ')') {
+      while (stack.pop() !== '(');
+    } else stack.push(x);
+  }
+  answer = stack.join('');
+  return answer;
 }
 
-let str = '(A(BC)D)EF(G(H)(IJ)K)LM(N)';
+const str = '(A(BC)D)EF(G(H)(IJ)K)LM(N)';
 console.log(solution(str));

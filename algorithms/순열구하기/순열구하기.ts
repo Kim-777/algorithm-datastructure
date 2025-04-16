@@ -52,15 +52,15 @@ function solution(arr, limit) {
 */
 
 function solution(arr, m) {
-  let answer = [];
-  let n = arr.length;
+  const answer = [];
+  const n = arr.length;
 
-  let ch = Array.from({ length: n }, () => 0);
-  let tmp = Array.from({ length: m }, () => 0);
+  const ch = Array.from({ length: n }, () => 0);
+  const tmp = Array.from({ length: m }, () => 0);
 
   function DFS(L) {
     if (L === m) {
-      console.log("tmp :::: ", tmp);
+      console.log('tmp :::: ', tmp);
       answer.push(tmp.slice());
     } else {
       for (let i = 0; i < n; i++) {

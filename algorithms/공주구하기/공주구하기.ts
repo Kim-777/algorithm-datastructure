@@ -33,34 +33,28 @@ N과 K가 주어질 때 공주를 구하러 갈 왕자의 번호를 출력하는
  */
 
 function solution(prince: number, number: number) {
+  let answer = 0;
 
-    let answer = 0;
+  // 큐를 사용해서 풀수 있습니다.
+  const firstline = [];
 
-    // 큐를 사용해서 풀수 있습니다.
-    let firstline = [];
+  for (let i = 1; i <= prince; i++) {
+    firstline.push(i);
+  }
 
-
-    for(let i =1; i<= prince; i++) {
-        firstline.push(i);
-    }
-    
-
-    while(firstline.length !== 1) {
-
-        for(let j =0; j <number-1; j++) {
-            firstline.push(firstline.shift());
-        }
-
-        firstline.shift();
-
+  while (firstline.length !== 1) {
+    for (let j = 0; j < number - 1; j++) {
+      firstline.push(firstline.shift());
     }
 
-    return answer = firstline.shift();
+    firstline.shift();
+  }
 
+  return (answer = firstline.shift());
 }
 
 // test case
-let prince =8;
-let number = 3;
+const prince = 8;
+const number = 3;
 
 console.log(solution(prince, number));

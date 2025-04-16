@@ -7,41 +7,36 @@
 // 각 자연수의 크기는 100,000를 넘지 않는다.
 // ▣ 출력설명
 // 첫 줄에 뒤집은 소수를 출력합니다. 출력순서는 입력된 순서대로 출력합니다.
-// ▣ 입력예제 1 
+// ▣ 입력예제 1
 // 9
 // 32 55 62 20 250 370 200 30 100
 // ▣ 출력예제 1
 // 23 2 73 2 3
 
-
 function isPrime(number) {
-    if(number===1) return false;
-    for(let i =2; i<= parseInt(Math.sqrt(number)); i++) {
-        if(number % i === 0) return false;
-    }
+  if (number === 1) return false;
+  for (let i = 2; i <= parseInt(Math.sqrt(number)); i++) {
+    if (number % i === 0) return false;
+  }
 
-    return true;
+  return true;
 }
 
-function solution (arr) {
+function solution(arr) {
+  answer = [];
 
-    answer = [];
+  for (let x of arr) {
+    let tmp = 0;
 
-    for(let x of arr) {
-        let tmp = 0;
-
-        while(x) {
-            tmp = tmp*10 + x%10
-            x = Math.floor(x/10)
-        }
-
-        if(isPrime(tmp)) answer.push(tmp);
+    while (x) {
+      tmp = tmp * 10 + (x % 10);
+      x = Math.floor(x / 10);
     }
 
-    return answer;
+    if (isPrime(tmp)) answer.push(tmp);
+  }
 
+  return answer;
 }
 
-
-
-console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]))
+console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]));

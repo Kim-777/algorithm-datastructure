@@ -24,46 +24,41 @@ C마리의 말을 N개의 마구간에 배치했을 때 가장 가까운 두 말
 */
 
 function solution(hores, stableses) {
-    let answer;
+  let answer;
 
-    // 오름차순으로 정렬
-    stableses.sort((a, b) => a - b);
+  // 오름차순으로 정렬
+  stableses.sort((a, b) => a - b);
 
-    let start = 1;
-    let end = stableses[stableses.length-1];
+  let start = 1;
+  let end = stableses[stableses.length - 1];
 
-    // 이분 검색
-    while(start <= end) {
+  // 이분 검색
+  while (start <= end) {
+    const mid = parseInt((start + end) / 2);
 
-        let mid = parseInt((start+end)/2);
+    if (check(stableses, mid) >= hores) {
+      answer = mid;
+      start = mid + 1;
+    } else end = mid - 1;
+  }
 
-        if(check(stableses, mid) >= hores) {
-            answer = mid;
-            start = mid +1;
-        } else end = mid -1;
-
-    }
-
-
-    return answer;
+  return answer;
 }
 
 function check(stableses, distance) {
-    let count =1;
-    // 첫번째 마굿간 부터 시작해줍니다.
-    let selectedPoint = stableses[0];
+  let count = 1;
+  // 첫번째 마굿간 부터 시작해줍니다.
+  let selectedPoint = stableses[0];
 
-    for(let i=1; i<stableses.length; i++) {
-
-        if(stableses[i] - selectedPoint >= distance) {
-            count++;
-            selectedPoint = stableses[i];
-        }
-
+  for (let i = 1; i < stableses.length; i++) {
+    if (stableses[i] - selectedPoint >= distance) {
+      count++;
+      selectedPoint = stableses[i];
     }
+  }
 
-    return count;
+  return count;
 }
 
-let arr=[1, 2, 8, 4, 9];
+const arr = [1, 2, 8, 4, 9];
 console.log(solution(3, arr));

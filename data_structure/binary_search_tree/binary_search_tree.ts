@@ -50,7 +50,7 @@ class BinarySearchTree<T> {
   find(value: T): Node<T> | null {
     if (this.root === null) return null;
     let current: Node<T> | null = this.root;
-    let found: boolean = false;
+    const found: boolean = false;
 
     while (current && !found) {
       if (value < current.value) {

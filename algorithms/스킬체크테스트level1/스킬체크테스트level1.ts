@@ -12,37 +12,33 @@ n은 1 이상, 25이하인 자연수입니다.
 
 // 문자열을 얼마나 다룰줄 아는지 물어보는거 같은데 성공!!
 function solution(string, num) {
+  answer = '';
 
-    answer = '';
+  for (const x of string) {
+    if (x === ' ') answer += x;
 
-    for(let x of string) {
-
-        if(x === ' ') answer += x;
-
-        let code = x.charCodeAt();
-        if(code >= 97 && code <= 122) {
-            let sum = code + num;
-            if(sum > 122) {
-                answer +=String.fromCodePoint(96+(sum%122))
-            } else {
-                answer +=String.fromCodePoint(sum);
-            }
-        } else if(code >= 65 && code <= 90) {
-            let sum = code + num;
-            if(sum > 90) {
-                answer +=String.fromCodePoint(64+(sum%90))
-            } else {
-                answer +=String.fromCodePoint(sum);
-            }
-        }
-
+    const code = x.charCodeAt();
+    if (code >= 97 && code <= 122) {
+      const sum = code + num;
+      if (sum > 122) {
+        answer += String.fromCodePoint(96 + (sum % 122));
+      } else {
+        answer += String.fromCodePoint(sum);
+      }
+    } else if (code >= 65 && code <= 90) {
+      const sum = code + num;
+      if (sum > 90) {
+        answer += String.fromCodePoint(64 + (sum % 90));
+      } else {
+        answer += String.fromCodePoint(sum);
+      }
     }
+  }
 
-
-    return answer;
+  return answer;
 }
 
-console.log(solution("a B z", 4));
+console.log(solution('a B z', 4));
 
 // console.log('a'.charCodeAt());
 // console.log('z'.charCodeAt());

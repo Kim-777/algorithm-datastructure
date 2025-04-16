@@ -12,32 +12,29 @@
 // 1 0 1 2 1 0 1 2 2 1 0
 
 function solution(str, char) {
+  let p = 1000;
+  const answer = [];
 
-    let p = 1000;
-    let answer = [];
-
-    for(let x of str) {
-        if(x === char) {
-            p = 0;
-            answer.push(p);
-        } else {
-            p++;
-            answer.push(p);
-        }
+  for (const x of str) {
+    if (x === char) {
+      p = 0;
+      answer.push(p);
+    } else {
+      p++;
+      answer.push(p);
     }
+  }
 
-    for(let i = str.length -1 ; i >= 0; i--) {
-        if(str[i] === char) p = 0;
-        else {
-            p++;
-            answer[i] = Math.min(answer[i], p);
-        }
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (str[i] === char) p = 0;
+    else {
+      p++;
+      answer[i] = Math.min(answer[i], p);
     }
+  }
 
-    return answer;
-
+  return answer;
 }
 
-
-let str="teachermode";
+const str = 'teachermode';
 console.log(solution(str, 'e'));

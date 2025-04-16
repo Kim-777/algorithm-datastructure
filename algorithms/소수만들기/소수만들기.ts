@@ -20,26 +20,24 @@
 // [4,6,7]을 이용해서 17을 만들 수 있습니다.
 
 function isPrime(number) {
-    if(number===1) return false;
-    for(let i =2; i<= parseInt(Math.sqrt(number)); i++) {
-        if(number % i === 0) return false;
-    }
+  if (number === 1) return false;
+  for (let i = 2; i <= parseInt(Math.sqrt(number)); i++) {
+    if (number % i === 0) return false;
+  }
 
-    return true;
+  return true;
 }
 
 function solution(nums) {
-    let answer = 0;
+  let answer = 0;
 
-
-    for(let i = 0; i < nums.length; i++) {
-        for(let j = i + 1; j < nums.length; j++) {
-            for(let k = j + 1; k < nums.length; k++) {
-                if(isPrime(nums[i] + nums[j] + nums[k])) answer++;
-            }
-        }
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      for (let k = j + 1; k < nums.length; k++) {
+        if (isPrime(nums[i] + nums[j] + nums[k])) answer++;
+      }
     }
+  }
 
-
-    return answer;
+  return answer;
 }

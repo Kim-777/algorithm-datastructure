@@ -27,8 +27,8 @@
 */
 
 function solution(headNumber, number) {
-  let temparr = [];
-  let answer = [];
+  const temparr = [];
+  const answer = [];
   let count = 0;
 
   function DFS(counter) {

@@ -35,7 +35,7 @@ function solution(scores) {
 
   for (let i = 0; i < scores.length; i++) {
     const [a, b] = scores[i];
-    let isHero = a === hero[0] && b === hero[1];
+    const isHero = a === hero[0] && b === hero[1];
     let flag;
     if (a < maxA) {
       for (let i = a + 1; i <= maxA; i++) {

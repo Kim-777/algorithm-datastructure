@@ -18,7 +18,7 @@ class Stack {
       this.first = newNode;
       this.last = this.first;
     } else {
-      let temp = this.first;
+      const temp = this.first;
       this.first = newNode;
       this.first.next = temp;
     }
@@ -30,7 +30,7 @@ class Stack {
       return undefined;
     }
 
-    let temp = this.first;
+    const temp = this.first;
 
     if (this.first === this.last) {
       this.last = null;

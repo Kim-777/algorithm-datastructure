@@ -11,30 +11,26 @@
 // ▣ 출력예제 1
 // K2HS7E
 
-
 function solution(str) {
+  let now = str[0];
+  let count = 1;
+  let answer = '';
 
-    let now = str[0];
-    let count = 1;
-    let answer = "";
-    
-    for(let i =1; i < str.length; i++) {
-        if(str[i] === now) {
-            count++;
-        } else {
-            answer += now;
-            now = str[i];
-            if(count !== 1) answer += count;
-            count = 1;
-        }
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === now) {
+      count++;
+    } else {
+      answer += now;
+      now = str[i];
+      if (count !== 1) answer += count;
+      count = 1;
     }
+  }
 
-    answer += now;
-    if(count !== 1) answer += count;
+  answer += now;
+  if (count !== 1) answer += count;
 
-
-    return answer;
+  return answer;
 }
-
 
 console.log(solution('KKHSSSSSSSEEEE'));

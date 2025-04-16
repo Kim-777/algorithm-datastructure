@@ -15,32 +15,26 @@
 3
 */
 
-
 // 이분검색의 이론을 예제를 통해 학습
 function solution(target, arr) {
+  let answer;
+  let lt = 0;
+  let rt = arr.length - 1;
 
-    let answer;
-    let lt = 0;
-    let rt = arr.length-1;
+  arr.sort((a, b) => a - b);
+  console.log(arr);
 
-    arr.sort((a, b) => a - b);
-    console.log(arr);
+  while (lt <= rt) {
+    const mid = parseInt((lt + rt) / 2);
+    if (arr[mid] === target) return mid + 1;
+    else if (arr[mid] > target) rt = mid - 1;
+    else lt = mid + 1;
+  }
 
-    while(lt<=rt) {
-
-        let mid = parseInt((lt+rt)/2);
-        if(arr[mid] === target) return mid+1;
-        else if(arr[mid] > target) rt = mid-1;
-        else lt = mid+1;
-    }
-
-
-    return answer;
-
+  return answer;
 }
 
-
 //test case
-let arr = [23, 87, 65, 12, 57, 32, 99, 81];
+const arr = [23, 87, 65, 12, 57, 32, 99, 81];
 console.log(solution(32, arr));
 console.log(solution(65, arr));

@@ -50,7 +50,7 @@ function solution(left, right) {
   return answer;
 }
 
-let left = 13;
-let right = 17;
+const left = 13;
+const right = 17;
 
 console.log(solution(left, right));

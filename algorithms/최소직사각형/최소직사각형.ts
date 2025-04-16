@@ -2,9 +2,9 @@ function solution(sizes) {
   let answer = 0;
   let n = 0;
   let m = 0;
-  for (let [w, h] of sizes) {
-    let min = Math.min(w, h);
-    let max = Math.max(w, h);
+  for (const [w, h] of sizes) {
+    const min = Math.min(w, h);
+    const max = Math.max(w, h);
 
     n = Math.max(min, n);
     m = Math.max(max, m);

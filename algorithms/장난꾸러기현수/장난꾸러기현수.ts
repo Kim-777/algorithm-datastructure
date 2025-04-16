@@ -36,25 +36,22 @@
 
 // 접근 방법
 // 키가 작은 순서 대로 --> 오름차순을 뜻함.
-// 원래대로 오름차순으로 만들고 자리수가 다른 곳 2곳 
-
+// 원래대로 오름차순으로 만들고 자리수가 다른 곳 2곳
 
 function solution(arr) {
+  const answer = [];
+  const newarr = Array.from(arr);
+  newarr.sort((a, b) => a - b);
 
-    let answer = [];
-    let newarr = Array.from(arr);
-    newarr.sort((a, b) => a - b);
+  for (let i = 1; i < arr.length - 1; i++) {
+    if (arr[i] !== newarr[i]) answer.push(i + 1);
+  }
 
-    for(let i =1; i<arr.length-1; i++) {
-        if(arr[i] !== newarr[i]) answer.push(i+1);
-    }
-
-    return answer;
-
+  return answer;
 }
 
-let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+const arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
 console.log(solution(arr));
 
-let arr2 = [120, 130, 150, 150, 130, 150];
+const arr2 = [120, 130, 150, 150, 130, 150];
 console.log(solution(arr2));

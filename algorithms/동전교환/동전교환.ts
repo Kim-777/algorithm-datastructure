@@ -46,7 +46,7 @@ function solution(coin, money) {
 
 function solution2(m, arr) {
   let answer = Number.MAX_SAFE_INTEGER;
-  let n = arr.length;
+  const n = arr.length;
   function DFS(L, sum) {
     if (sum > m) return;
     if (L >= answer) return;
@@ -63,6 +63,6 @@ function solution2(m, arr) {
   return answer;
 }
 
-let coin = [1, 2, 5];
+const coin = [1, 2, 5];
 console.log(solution(coin, 15));
 console.log(solution2(15, coin));

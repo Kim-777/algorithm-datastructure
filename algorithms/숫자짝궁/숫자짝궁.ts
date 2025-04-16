@@ -1,10 +1,10 @@
 function solution(X, Y) {
-  var answer = "";
+  let answer = '';
   let lp = 0;
   let rp = 0;
-  let nums = [];
-  let leftNumbers = X.split("").sort((a, b) => a - b);
-  let rightNumber = Y.split("").sort((a, b) => a - b);
+  const nums = [];
+  const leftNumbers = X.split('').sort((a, b) => a - b);
+  const rightNumber = Y.split('').sort((a, b) => a - b);
   // console.log(leftNumbers);
   // console.log(rightNumber);
   while (lp < leftNumbers.length && rp < rightNumber.length) {
@@ -17,9 +17,9 @@ function solution(X, Y) {
     if (leftNumbers[lp] < rightNumber[rp]) lp++;
   }
 
-  answer = nums.sort((a, b) => b - a).join("");
+  answer = nums.sort((a, b) => b - a).join('');
 
-  if (Number(answer) === 0) answer = "0";
+  if (Number(answer) === 0) answer = '0';
 
   return answer;
 }
@@ -29,7 +29,7 @@ function solution(X, Y) {
 
 // solution(X, Y);
 
-X = "100";
-Y = "203045";
+X = '100';
+Y = '203045';
 
 console.log(solution(X, Y));

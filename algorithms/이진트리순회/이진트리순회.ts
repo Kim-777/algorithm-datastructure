@@ -9,40 +9,37 @@
 중위순회 출력 : 4 2 5 1 6 3 7
 후위순회 출력 : 4 5 2 6 7 3 1
 
-*/ 
+*/
 
 function solution(v) {
+  let answer;
 
-    let answer;
-
-    function DFS(v) {
-
-        if(v>7) return;
-        else {
-            /*
+  function DFS(v) {
+    if (v > 7) return;
+    else {
+      /*
             전위순위(preorder) 
             console.log(v);
             DFS(v*2)
             DFS(v*2+1)
             */
 
-            /*
+      /*
             inorder
             DFS(v*2);
             console.log(v);
             DFS(v*2+1);
             */
 
-            /* postorder */ 
-            DFS(v*2);
-            DFS(v*2+1);
-            console.log(v);
-        }
-
+      /* postorder */
+      DFS(v * 2);
+      DFS(v * 2 + 1);
+      console.log(v);
     }
+  }
 
-    DFS(v);
-    return answer;
+  DFS(v);
+  return answer;
 }
 
-solution(1)
+solution(1);

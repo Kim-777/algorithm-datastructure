@@ -33,11 +33,11 @@
 function solution(times) {
   let answer = 0;
 
-  let time_line = [];
+  const time_line = [];
 
-  for (let time of times) {
-    time_line.push([time[0], "s"]);
-    time_line.push([time[1], "e"]);
+  for (const time of times) {
+    time_line.push([time[0], 's']);
+    time_line.push([time[1], 'e']);
   }
 
   time_line.sort((a, b) => {
@@ -49,8 +49,8 @@ function solution(times) {
 
   let peoples = 0;
   for (let i = 0; i < time_line.length; i++) {
-    if (time_line[i][1] === "s") peoples++;
-    else if (time_line[i][1] === "e") peoples--;
+    if (time_line[i][1] === 's') peoples++;
+    else if (time_line[i][1] === 'e') peoples--;
     answer = Math.max(answer, peoples);
   }
 
@@ -58,7 +58,7 @@ function solution(times) {
 }
 
 // test case
-let times = [
+const times = [
   [14, 18],
   [12, 15],
   [15, 20],

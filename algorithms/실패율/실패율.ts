@@ -43,7 +43,7 @@ N	stages	result
  */
 
 function solution(N, stages) {
-  var answer = Array.from({ length: N + 1 }, () => 0);
+  const answer = Array.from({ length: N + 1 }, () => 0);
   let total = stages.length;
   for (let i = 0; i < stages.length; i++) {
     answer[stages[i] - 1]++;

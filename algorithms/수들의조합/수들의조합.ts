@@ -19,24 +19,22 @@ N개의 정수가 주어지면 그 숫자들 중 K개를 뽑는 조합의 합이
 */
 
 function solution(numbers, pick, M) {
-    let answer = 0;
+  let answer = 0;
 
-    function DFS(L, criterion, sum) {
-
-        if(L===pick) {
-            if(sum%M ===0) answer++; 
-        } else {
-            for(let i =criterion; i < numbers.length; i++ ) {
-                DFS(L+1, i+1, sum+numbers[i]);
-            }
-        }
-
+  function DFS(L, criterion, sum) {
+    if (L === pick) {
+      if (sum % M === 0) answer++;
+    } else {
+      for (let i = criterion; i < numbers.length; i++) {
+        DFS(L + 1, i + 1, sum + numbers[i]);
+      }
     }
+  }
 
-    DFS(0, 0, 0);
+  DFS(0, 0, 0);
 
-    return answer;
+  return answer;
 }
 
-let numbers=[2, 4, 5, 8, 12];
+const numbers = [2, 4, 5, 8, 12];
 console.log(solution(numbers, 3, 6));

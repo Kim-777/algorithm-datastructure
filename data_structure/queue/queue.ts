@@ -34,7 +34,7 @@ class Queue<T> {
 
   dequeue(): T | null {
     if (this.first === null) return null;
-    let temp = this.first;
+    const temp = this.first;
 
     if (this.first === this.last) {
       this.last = null;

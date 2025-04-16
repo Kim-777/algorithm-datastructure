@@ -20,23 +20,20 @@ N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프�
 */
 
 function solution(arr) {
+  const answer = arr;
 
-    let answer = arr;
-
-    for(let i = 1; i<arr.length; i++) {
-        let temp = arr[i];
-        let j = i-1;
-        for(j; j>=0; j--) {
-            if(arr[j] > temp) arr[j+1] = arr[j];
-            else break;
-        }
-        arr[j+1] = temp;
+  for (let i = 1; i < arr.length; i++) {
+    const temp = arr[i];
+    let j = i - 1;
+    for (j; j >= 0; j--) {
+      if (arr[j] > temp) arr[j + 1] = arr[j];
+      else break;
     }
+    arr[j + 1] = temp;
+  }
 
-
-    return answer;
-
+  return answer;
 }
 
-let arr = [11, 6, 7, 5, 6, 6, 10, 9];
+const arr = [11, 6, 7, 5, 6, 6, 10, 9];
 console.log(solution(arr));

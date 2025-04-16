@@ -7,9 +7,9 @@
 
 function solution(weights) {
   let answer = 0;
-  let tmp = Array.from({ length: 2 }, () => 0);
-  let pair = Array.from({ length: 2 }, () => 0);
-  let aleadyPair = {};
+  const tmp = Array.from({ length: 2 }, () => 0);
+  const pair = Array.from({ length: 2 }, () => 0);
+  const aleadyPair = {};
   function DFS(L, index) {
     if (L === 2) {
       if (tmp[0] === tmp[1]) {
@@ -21,7 +21,7 @@ function solution(weights) {
     } else {
       for (let i = index; i < weights.length; i++) {
         if (aleadyPair[`${pair[0]}${weights[i]}`]) continue;
-        for (let num of [2, 3, 4]) {
+        for (const num of [2, 3, 4]) {
           tmp[L] = weights[i] * num;
           pair[L] = weights[i];
           DFS(L + 1, i + 1);

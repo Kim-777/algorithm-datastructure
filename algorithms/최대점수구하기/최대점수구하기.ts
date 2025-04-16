@@ -41,7 +41,7 @@ function solution(arr, limit) {
   return max;
 }
 
-let arr = [
+const arr = [
   [5, 20],
   [10, 5],
   [25, 12],
@@ -50,6 +50,6 @@ let arr = [
   [7, 4],
 ];
 
-let limit = 20;
+const limit = 20;
 
 console.log(solution(arr, limit));

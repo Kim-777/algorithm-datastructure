@@ -1,11 +1,11 @@
 function solution(n, arr1, arr2) {
-  var answer = [];
-  let arr1Board = [];
-  let arr2Board = [];
+  const answer = [];
+  const arr1Board = [];
+  const arr2Board = [];
 
   for (let i = 0; i < n; i++) {
-    arr1Board.push(arr1[i].toString(2).padStart(n, "0").split(""));
-    arr2Board.push(arr2[i].toString(2).padStart(n, "0").split(""));
+    arr1Board.push(arr1[i].toString(2).padStart(n, '0').split(''));
+    arr2Board.push(arr2[i].toString(2).padStart(n, '0').split(''));
   }
 
   // console.log(answer);
@@ -13,12 +13,12 @@ function solution(n, arr1, arr2) {
   // console.log(arr2Board);
 
   for (let i = 0; i < n; i++) {
-    let shop = "";
+    let shop = '';
     for (let j = 0; j < n; j++) {
       if (Number(arr1Board[i][j]) + Number(arr2Board[i][j])) {
-        shop += "#";
+        shop += '#';
       } else {
-        shop += " ";
+        shop += ' ';
       }
     }
     answer.push(shop);

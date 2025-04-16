@@ -1,5 +1,5 @@
 function solution(nums) {
-  let answer = Math.min(new Set(nums).size, Math.floor(nums.length / 2));
+  const answer = Math.min(new Set(nums).size, Math.floor(nums.length / 2));
 
   console.log(answer);
 

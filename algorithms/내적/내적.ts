@@ -18,13 +18,12 @@
 
 // a와 b의 내적은 (-1)*1 + 0*0 + 1*(-1) = -2 입니다.
 
-
 function solution(a, b) {
-    let answer = 0;
+  let answer = 0;
 
-    for(let i =0; i < a.length; i++) {
-        answer += a[i]*b[i];
-    }
+  for (let i = 0; i < a.length; i++) {
+    answer += a[i] * b[i];
+  }
 
-    return answer;
+  return answer;
 }

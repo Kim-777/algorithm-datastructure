@@ -2,10 +2,10 @@
 
 function solution(lottos, win_nums) {
   let answer = [];
-  let check = [6, 6, 5, 4, 3, 2, 1];
-  let notZeroLottos = lottos.filter((lottos) => lottos !== 0);
-  let zeroNums = lottos.length - notZeroLottos.length;
-  let winnerNumsObj = {};
+  const check = [6, 6, 5, 4, 3, 2, 1];
+  const notZeroLottos = lottos.filter((lottos) => lottos !== 0);
+  const zeroNums = lottos.length - notZeroLottos.length;
+  const winnerNumsObj = {};
   let sum = 0;
   win_nums.forEach((num) => {
     winnerNumsObj[num] = true;

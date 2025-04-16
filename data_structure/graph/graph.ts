@@ -23,16 +23,11 @@ class Graph {
   }
 
   removeEdge(val1, val2) {
-    if (!this.adjacencyList[val1] || !this.adjacencyList[val2])
-      return undefined;
+    if (!this.adjacencyList[val1] || !this.adjacencyList[val2]) return undefined;
 
-    this.adjacencyList[val1] = this.adjacencyList[val1].filter(
-      (value) => value !== val2
-    );
+    this.adjacencyList[val1] = this.adjacencyList[val1].filter((value) => value !== val2);
 
-    this.adjacencyList[val2] = this.adjacencyList[val2].filter(
-      (value) => value !== val1
-    );
+    this.adjacencyList[val2] = this.adjacencyList[val2].filter((value) => value !== val1);
   }
 
   removeVertex(vertex) {
@@ -106,23 +101,23 @@ class Graph {
 }
 
 const graph = new Graph();
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("C");
-graph.addVertex("D");
-graph.addVertex("E");
-graph.addVertex("F");
-graph.addEdge("A", "B");
-graph.addEdge("A", "C");
-graph.addEdge("B", "D");
-graph.addEdge("C", "E");
-graph.addEdge("D", "E");
-graph.addEdge("D", "F");
-graph.addEdge("E", "F");
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('B', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('D', 'E');
+graph.addEdge('D', 'F');
+graph.addEdge('E', 'F');
 
 // graph.removeVertex("five");
 // graph.removeEdge("four", "five");
 // console.log(graph.depthFirstRecursive("A"));
 console.log(graph);
-console.log(graph.depthFirstIterative("A"));
-console.log(graph.breadthFirst("A"));
+console.log(graph.depthFirstIterative('A'));
+console.log(graph.breadthFirst('A'));

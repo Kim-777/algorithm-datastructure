@@ -35,9 +35,7 @@ class WeightedGraph {
       return false;
     }
 
-    const foundVertex2 = this.adjacencyList[vertex1].findIndex(
-      (vertex) => vertex.node === vertex2
-    );
+    const foundVertex2 = this.adjacencyList[vertex1].findIndex((vertex) => vertex.node === vertex2);
 
     if (foundVertex2 > -1) {
       this.adjacencyList[vertex1].splice(foundVertex2, 1, {
@@ -48,9 +46,7 @@ class WeightedGraph {
       this.adjacencyList[vertex1].push({ node: vertex2, weight });
     }
 
-    const foundVertex1 = this.adjacencyList[vertex2].findIndex(
-      (vertex) => vertex.node === vertex1
-    );
+    const foundVertex1 = this.adjacencyList[vertex2].findIndex((vertex) => vertex.node === vertex1);
 
     if (foundVertex1 > -1) {
       this.adjacencyList[vertex2].splice(foundVertex1, 1, {
@@ -77,7 +73,7 @@ class WeightedGraph {
 
     const vertexs = Object.keys(this.adjacencyList);
 
-    for (let vertex of vertexs) {
+    for (const vertex of vertexs) {
       previous[vertex] = null;
       if (vertex === start) {
         distances[vertex] = 0;
@@ -102,8 +98,8 @@ class WeightedGraph {
       }
 
       if (smallest || distances[smallest] !== Infinity) {
-        for (let neighbor of Object.values(this.adjacencyList[smallest])) {
-          let candidate = distances[smallest] + neighbor.weight;
+        for (const neighbor of Object.values(this.adjacencyList[smallest])) {
+          const candidate = distances[smallest] + neighbor.weight;
 
           if (candidate < distances[neighbor.node]) {
             distances[neighbor.node] = candidate;
@@ -122,22 +118,22 @@ class WeightedGraph {
 }
 
 const wg = new WeightedGraph();
-wg.addVertex("A");
-wg.addVertex("B");
-wg.addVertex("C");
-wg.addVertex("D");
-wg.addVertex("E");
-wg.addVertex("F");
-wg.addEdge("A", "B", 4);
-wg.addEdge("A", "C", 2);
-wg.addEdge("B", "E", 3);
-wg.addEdge("C", "D", 2);
-wg.addEdge("C", "F", 4);
-wg.addEdge("D", "E", 3);
-wg.addEdge("D", "F", 1);
-wg.addEdge("E", "F", 1);
+wg.addVertex('A');
+wg.addVertex('B');
+wg.addVertex('C');
+wg.addVertex('D');
+wg.addVertex('E');
+wg.addVertex('F');
+wg.addEdge('A', 'B', 4);
+wg.addEdge('A', 'C', 2);
+wg.addEdge('B', 'E', 3);
+wg.addEdge('C', 'D', 2);
+wg.addEdge('C', 'F', 4);
+wg.addEdge('D', 'E', 3);
+wg.addEdge('D', 'F', 1);
+wg.addEdge('E', 'F', 1);
 // console.log(wg.show());
-console.log(wg.Dijkstra({ start: "A", finish: "E" }));
+console.log(wg.Dijkstra({ start: 'A', finish: 'E' }));
 
 // const q = new PriorityQueue();
 // q.enqueue("A", 1);

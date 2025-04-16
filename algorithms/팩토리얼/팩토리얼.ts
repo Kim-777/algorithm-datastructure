@@ -17,29 +17,25 @@ N! = n*(n-1)*(n-2)*.....*2*1입니다.
 120
 */
 
-
 function solution(N) {
+  if (N === 1) N;
+  else {
+    N = N * solution(N - 1);
+  }
 
-
-    if(N === 1) N;
-    else {
-      N = N * solution(N-1);
-    }
-
-    return N;
-
+  return N;
 }
 
 function solution2(n) {
-    let answer;
+  let answer;
 
-    function DFS(n) {
-        if(n===1) return 1;
-        else return n * DFS(n-1);
-    }
+  function DFS(n) {
+    if (n === 1) return 1;
+    else return n * DFS(n - 1);
+  }
 
-    answer = DFS(n);
-    return answer;
+  answer = DFS(n);
+  return answer;
 }
 
 console.log(solution(6));

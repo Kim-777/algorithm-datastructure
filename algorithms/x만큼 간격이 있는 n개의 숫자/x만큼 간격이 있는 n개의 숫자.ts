@@ -8,7 +8,7 @@ n은 1000 이하인 자연수입니다.
  */
 
 function solution(x, n) {
-  var answer = [];
+  const answer = [];
 
   for (let i = 1; i <= n; i++) {
     answer.push(x * i);

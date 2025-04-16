@@ -29,7 +29,6 @@ CBDAGE
 YES
 */
 
-
 /* 이 방법은  schedule의 뒤에 같은 수업이 더 많이 추가되면 NO를 반환함, 그래서 fail case
 function solution(essential, schedule) {
 
@@ -51,20 +50,20 @@ function solution(essential, schedule) {
 }
 */
 
-function solution(need, plan){
-    let answer="YES";
-    let queue=need.split('');
-    for(let x of plan){
-        if(queue.includes(x)){
-            if(x!==queue.shift()) return "NO";
-        }
+function solution(need, plan) {
+  const answer = 'YES';
+  const queue = need.split('');
+  for (const x of plan) {
+    if (queue.includes(x)) {
+      if (x !== queue.shift()) return 'NO';
     }
-    if(queue.length>0) return "NO";  
-    return answer;
+  }
+  if (queue.length > 0) return 'NO';
+  return answer;
 }
 
 // test case
 
-let essential="CBAGHEE";
-let schedule="CBDAGHEEEE";
+const essential = 'CBAGHEE';
+const schedule = 'CBDAGHEEEE';
 console.log(solution(essential, schedule));

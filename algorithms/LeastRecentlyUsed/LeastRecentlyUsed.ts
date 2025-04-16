@@ -67,27 +67,27 @@ N개의 작업을 처리한 후 캐시메모리의 상태를 가장 최근 사�
 
 // 삽입 정렬을 이용해서 풀어봅시다.
 function solution(num, job) {
-    let answer = Array.from({length:num}, i=> 0);
+  const answer = Array.from({ length: num }, (i) => 0);
 
-    for(let i=0; i<job.length; i++) {
-        let temp = job[i];
-        if(answer.includes(temp)) {
-            let index = answer.indexOf(temp);
-            for(let j= index-1; j>=0; j--) {
-                answer[j+1] = answer[j];
-            }
-            answer[0] = temp;
-        } else {
-            answer.unshift(temp);
-        }
-    
-        answer.length = 5;
+  for (let i = 0; i < job.length; i++) {
+    const temp = job[i];
+    if (answer.includes(temp)) {
+      const index = answer.indexOf(temp);
+      for (let j = index - 1; j >= 0; j--) {
+        answer[j + 1] = answer[j];
+      }
+      answer[0] = temp;
+    } else {
+      answer.unshift(temp);
     }
 
-    return answer;
+    answer.length = 5;
+  }
+
+  return answer;
 }
 
-let num = 5;
-let job = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+const num = 5;
+const job = [1, 2, 3, 2, 6, 2, 3, 5, 7];
 
 console.log(solution(num, job));

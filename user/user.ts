@@ -10,4 +10,4 @@ export function getUser(id: number): User {
 
 export function createUser(user: User): void {
   // ... 기존 로직
-} 
+}

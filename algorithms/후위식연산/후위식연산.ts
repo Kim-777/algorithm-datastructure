@@ -17,51 +17,45 @@
 12
 */
 
-function solution(postfix){  
+function solution(postfix) {
+  let answer = 0;
+  const stack = [];
 
-    let answer = 0;
-    let stack = [];
+  for (const x of postfix) {
+    // x 값이 숫자이면 stack push 해줍니다.
+    if (!isNaN(x)) {
+      // 단항 연산자 +를 붙여줘서 문자를 숫자로 형 변환 시켜줍니다.
+      stack.push(+x);
+    } else {
+      //x의 케이스에 따라 분기 해줍니다.
 
-    for(let x of postfix) {
-
-        // x 값이 숫자이면 stack push 해줍니다.
-        if(!isNaN(x)) {
-            // 단항 연산자 +를 붙여줘서 문자를 숫자로 형 변환 시켜줍니다.
-            stack.push(+x);
-        } else {
-
-            //x의 케이스에 따라 분기 해줍니다.
-
-            let num1 = stack.pop();
-            let num2 = stack.pop();
-            // console.log(num1);
-            // console.log(num2);
-            switch(x) {
-                case '+':
-                    stack.push(+num2 + +num1)
-                    break;
-                case '-':
-                    stack.push(+num2 - +num1)
-                    break;          
-                case '*':
-                    stack.push(+num2 * +num1)
-                    break;
-                case '/':
-                    stack.push(+num2 / +num1)
-                    break;                        
-            }
-        }
-
+      const num1 = stack.pop();
+      const num2 = stack.pop();
+      // console.log(num1);
+      // console.log(num2);
+      switch (x) {
+        case '+':
+          stack.push(+num2 + +num1);
+          break;
+        case '-':
+          stack.push(+num2 - +num1);
+          break;
+        case '*':
+          stack.push(+num2 * +num1);
+          break;
+        case '/':
+          stack.push(+num2 / +num1);
+          break;
+      }
     }
+  }
 
-    return answer = stack.pop();
-
-
+  return (answer = stack.pop());
 }
 
 //test case
-let str="352+*9-";
+const str = '352+*9-';
 console.log(solution(str));
 
-let test2 = "59-";
-console.log(solution(test2)); 
+const test2 = '59-';
+console.log(solution(test2));

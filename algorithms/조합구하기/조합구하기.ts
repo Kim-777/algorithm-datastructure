@@ -24,28 +24,26 @@
 */
 
 function solution(n, m) {
+  const answer = [];
+  const tmp = [];
 
-    let answer = [];
-    let tmp = [];
-
-    function DFS(L, criterion) {
-        if(L === m) {
-            answer.push(tmp.slice());      
-        } else {
-            for(let i=criterion; i<= n; i++ ) {
-                tmp.push(i);
-                DFS(L+1, i+1);
-                tmp.pop();
-            }
-        }
+  function DFS(L, criterion) {
+    if (L === m) {
+      answer.push(tmp.slice());
+    } else {
+      for (let i = criterion; i <= n; i++) {
+        tmp.push(i);
+        DFS(L + 1, i + 1);
+        tmp.pop();
+      }
     }
+  }
 
-    DFS(0, 1)
-    return answer;
+  DFS(0, 1);
+  return answer;
 }
 
-let number = 5;
-let number2 = 2;
+const number = 5;
+const number2 = 2;
 
 console.log(solution(number, number2));
-

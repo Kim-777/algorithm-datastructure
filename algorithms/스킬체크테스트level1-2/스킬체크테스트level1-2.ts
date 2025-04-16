@@ -17,17 +17,15 @@ n	return
 */
 
 function solution(n) {
+  let answer = -1;
 
-    let answer = -1;
-
-    // 1의 경우까지 생각해서 1을 더해줘야함!!
-    for(let i=1; i <= parseInt(n/2) + 1; i++) {
-        if(i*i === n) {
-            answer = (i+1)*(i+1);
-            break;
-        }
+  // 1의 경우까지 생각해서 1을 더해줘야함!!
+  for (let i = 1; i <= parseInt(n / 2) + 1; i++) {
+    if (i * i === n) {
+      answer = (i + 1) * (i + 1);
+      break;
     }
+  }
 
-    return answer;
-
+  return answer;
 }

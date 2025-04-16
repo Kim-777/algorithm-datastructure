@@ -16,27 +16,22 @@ NO
 */
 
 function solution(str) {
+  const answer = 'YES';
+  const stack = [];
 
-    let answer = 'YES';
-    let stack = [];
-
-    for(let i=0; i < str.length; i++) {
-        if(str[i] === '(') stack.push(str[i]);
-        else if(str[i] === ')') {
-            if(stack.length === 0) return 'NO';
-            else stack.pop();
-        }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(') stack.push(str[i]);
+    else if (str[i] === ')') {
+      if (stack.length === 0) return 'NO';
+      else stack.pop();
     }
+  }
 
-    if(stack.length > 0) return 'NO';
+  if (stack.length > 0) return 'NO';
 
-
-    return answer;
-
+  return answer;
 }
 
-let str = "(()(()))(()";
+const str = '(()(()))(()';
 
 console.log(solution(str));
-
-

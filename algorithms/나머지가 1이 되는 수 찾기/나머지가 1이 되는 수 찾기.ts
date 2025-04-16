@@ -17,7 +17,7 @@ n	result
  */
 
 function solution(n) {
-  var answer = 0;
+  let answer = 0;
   let length = 1;
   while (!answer && length < n) {
     if (n % length === 1) answer = length;

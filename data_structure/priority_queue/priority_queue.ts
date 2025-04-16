@@ -25,8 +25,8 @@ class PriorityHeapQueue {
     const element = this.queue[nowIndex];
 
     while (nowIndex > 0) {
-      let parentIndex = Math.floor((nowIndex - 1) / 2);
-      let parent = this.queue[parentIndex];
+      const parentIndex = Math.floor((nowIndex - 1) / 2);
+      const parent = this.queue[parentIndex];
       if (element.priority >= parent.priority) break;
       this.queue[nowIndex] = parent;
       this.queue[parentIndex] = element;
@@ -50,8 +50,8 @@ class PriorityHeapQueue {
     const element = this.queue[0];
 
     while (true) {
-      let leftChildIdx = 2 * idx + 1;
-      let rightChildIdx = 2 * idx + 2;
+      const leftChildIdx = 2 * idx + 1;
+      const rightChildIdx = 2 * idx + 2;
       let leftChild;
       let rightChild;
       let swap = null;
@@ -87,7 +87,7 @@ priorityQueue.enqueue(2, 2);
 priorityQueue.enqueue(2, 5);
 priorityQueue.enqueue(10, 1);
 
-console.log("priorityQueue ::::: ", priorityQueue);
+console.log('priorityQueue ::::: ', priorityQueue);
 
 priorityQueue.dequeue();
-console.log("priorityQueue ::::: ", priorityQueue);
+console.log('priorityQueue ::::: ', priorityQueue);

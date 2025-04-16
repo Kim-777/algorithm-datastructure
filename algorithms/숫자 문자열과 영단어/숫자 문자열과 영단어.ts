@@ -12,22 +12,11 @@
  */
 
 function solution(s) {
-  let numbers = [
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine",
-  ];
-  var answer = s;
+  const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  let answer = s;
 
   for (let i = 0; i < numbers.length; i++) {
-    let arr = answer.split(numbers[i]);
+    const arr = answer.split(numbers[i]);
     console.log(arr);
     answer = arr.join(i);
   }
@@ -36,7 +25,7 @@ function solution(s) {
 }
 
 function solution2(s) {
-  let charSet = {
+  const charSet = {
     zero: 0,
     one: 1,
     two: 2,
@@ -49,8 +38,8 @@ function solution2(s) {
     nine: 9,
   };
 
-  for (let [key, value] of Object.entries(charSet)) {
-    let re = new RegExp(`${key}`, "g");
+  for (const [key, value] of Object.entries(charSet)) {
+    const re = new RegExp(`${key}`, 'g');
     s = s.replace(re, value);
   }
   return parseInt(s);
@@ -59,6 +48,6 @@ function solution2(s) {
 // let s = "one4seveneight";
 // console.log(solution(s));
 
-s = "1zerotwozero3";
+s = '1zerotwozero3';
 
 console.log(solution(s));

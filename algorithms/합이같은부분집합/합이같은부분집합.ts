@@ -25,38 +25,32 @@ YES
 */
 
 function solution(arr) {
+  let answer = 'NO';
+  const firstarr = [];
+  const secondarr = [];
 
-    let answer = "NO";
-    let firstarr = [];
-    let secondarr =[];
-
-    function DFS(v) {
-
-        if(v === arr.length +1) {
-
-            let first = firstarr.reduce((a, b) => a + b, 0);
-            let second = secondarr.reduce((a, b) => a + b, 0);
-            // console.log(first);
-            // console.log(second);
-            if(first === second) {
-                return answer = "YES";
-            }
-
-        } else {
-            firstarr.push(arr[v-1]);
-            DFS(v+1);
-            secondarr.push(firstarr.pop());
-            DFS(v+1);
-            secondarr.pop();
-        } 
+  function DFS(v) {
+    if (v === arr.length + 1) {
+      const first = firstarr.reduce((a, b) => a + b, 0);
+      const second = secondarr.reduce((a, b) => a + b, 0);
+      // console.log(first);
+      // console.log(second);
+      if (first === second) {
+        return (answer = 'YES');
+      }
+    } else {
+      firstarr.push(arr[v - 1]);
+      DFS(v + 1);
+      secondarr.push(firstarr.pop());
+      DFS(v + 1);
+      secondarr.pop();
     }
+  }
 
-    DFS(1);
+  DFS(1);
 
-    return answer;
+  return answer;
 }
-
-
 
 /* 다른 사람의 풀이 
 
@@ -87,5 +81,5 @@ function solution(arr) {
 }
 */
 
-let arr =[1, 3, 5, 6, 7, 10];
-console.log(solution(arr))
+const arr = [1, 3, 5, 6, 7, 10];
+console.log(solution(arr));

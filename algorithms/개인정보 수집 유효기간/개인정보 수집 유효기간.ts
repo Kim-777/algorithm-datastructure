@@ -11,27 +11,27 @@
 */
 
 function solution(today, terms, privacies) {
-  let answer = [];
+  const answer = [];
   const termsObj = {};
-  const [year, month, days] = today.split(".");
+  const [year, month, days] = today.split('.');
 
   const y = Number(year);
   const m = Number(month);
   const d = Number(days);
 
   terms.forEach((term) => {
-    const [a, b] = term.split(" ");
+    const [a, b] = term.split(' ');
     termsObj[a] = Number(b);
   });
 
   privacies.forEach((privacy, index) => {
-    const [day, term] = privacy.split(" ");
+    const [day, term] = privacy.split(' ');
 
-    const [year, month, days] = day.split(".");
+    const [year, month, days] = day.split('.');
 
-    let newMonth = Number(month);
-    let newYear = Number(year);
-    let newDays = Number(days);
+    const newMonth = Number(month);
+    const newYear = Number(year);
+    const newDays = Number(days);
     // if (newDays === 1) {
     //   --newMonth;
     //   if (!newMonth) {
@@ -77,24 +77,13 @@ function solution(today, terms, privacies) {
   return answer;
 }
 
-const today = "2022.05.19";
-const terms = ["A 6", "B 12", "C 3"];
-const privates = [
-  "2021.05.02 A",
-  "2021.07.01 B",
-  "2022.02.19 C",
-  "2022.02.20 C",
-];
+const today = '2022.05.19';
+const terms = ['A 6', 'B 12', 'C 3'];
+const privates = ['2021.05.02 A', '2021.07.01 B', '2022.02.19 C', '2022.02.20 C'];
 
-const today2 = "2020.01.01";
-const terms2 = ["Z 3", "D 5"];
-const privates2 = [
-  "2019.01.01 D",
-  "2019.11.15 Z",
-  "2019.08.02 D",
-  "2019.07.01 D",
-  "2018.12.28 Z",
-];
+const today2 = '2020.01.01';
+const terms2 = ['Z 3', 'D 5'];
+const privates2 = ['2019.01.01 D', '2019.11.15 Z', '2019.08.02 D', '2019.07.01 D', '2018.12.28 Z'];
 
 console.log(solution(today, terms, privates));
 console.log(solution(today2, terms2, privates2));

@@ -20,10 +20,10 @@ N과 가장 밑에 있는 숫자가 주어져 있을 때 가장 윗줄에 있는
 function solution(n, f) {
   let answer;
   let flag = 0;
-  let dy = Array.from(Array(n + 1), () => Array(n + 1).fill(0));
-  let ch = Array.from({ length: n + 1 }, () => 0);
-  let p = Array.from({ length: n }, () => 0);
-  let b = Array.from({ length: n }, () => 0);
+  const dy = Array.from(Array(n + 1), () => Array(n + 1).fill(0));
+  const ch = Array.from({ length: n + 1 }, () => 0);
+  const p = Array.from({ length: n }, () => 0);
+  const b = Array.from({ length: n }, () => 0);
 
   function combi(n, r) {
     if (dy[n][r] > 0) return dy[n][r];

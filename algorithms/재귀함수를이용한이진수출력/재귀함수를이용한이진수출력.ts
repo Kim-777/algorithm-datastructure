@@ -17,20 +17,18 @@
 */
 
 function solution(number) {
+  let answer = '';
 
-    let answer='';
-
-    function DFS(number) {
-        if(number===0) return;
-        else {
-            DFS(parseInt(number/2));
-            answer+=(number%2);
-        } 
+  function DFS(number) {
+    if (number === 0) return;
+    else {
+      DFS(parseInt(number / 2));
+      answer += number % 2;
     }
+  }
 
-
-    DFS(number);
-    return answer;
+  DFS(number);
+  return answer;
 }
 
 console.log(solution(11));
