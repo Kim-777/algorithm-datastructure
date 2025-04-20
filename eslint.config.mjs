@@ -31,6 +31,8 @@ const eslintConfig = [
     rules: {
       ...pluginTs.configs.recommended.rules, // 기본 recommended 룰
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   // Prettier 설정

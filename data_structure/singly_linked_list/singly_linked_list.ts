@@ -1,5 +1,5 @@
 class Node {
-  constructor(val) {
+  constructor(val: string) {
     this.val = val;
     this.next = null;
   }
@@ -12,7 +12,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  push(val) {
+  push(val: string) {
     const newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
@@ -81,7 +81,7 @@ class SinglyLinkedList {
 
   shift() {
     if (!this.head) return undefined;
-    const currentHead = this.head;
+    let currentHead = this.head;
     this.length--;
     this.head = currentHead.next;
 
@@ -134,8 +134,8 @@ class SinglyLinkedList {
     if (index === this.length) return !!this.push(value);
     if (index === 0) return !!this.unshift(value);
 
-    const newNode = new Node(value);
-    const prev = this.get(index - 1);
+    let newNode = new Node(value);
+    let prev = this.get(index - 1);
     newNode.next = prev.next;
     prev.next = newNode;
     this.length++;
@@ -192,7 +192,7 @@ class SinglyLinkedList {
   }
 
   print() {
-    const arr = [];
+    let arr = [];
     let current = this.head;
     while (current) {
       arr.push(current.val);

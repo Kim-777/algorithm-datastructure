@@ -1,5 +1,5 @@
-const fs = require('fs')
+const fs = require('fs');
 
 let input = fs.readFileSync('./algorithms/test.txt').toString().split(' ');
 
-console.log('input : ', input)
+console.log('input : ', input);

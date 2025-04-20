@@ -1,9 +1,2 @@
-import * as fs from 'fs';
-
-function fibonacci(n: number): number[] {
-    // ... existing code ...
-}
-
-function solution(input: string[]): void {
-    // ... existing code ...
-}
+const fs = require('fs');
+const inputs = fs.readFIleSync('/dev/stdin').toString().trim('\n');
